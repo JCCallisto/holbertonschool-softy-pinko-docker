@@ -1,0 +1,21 @@
+services:
+  back-end:
+    build:
+      context: ./back-end
+      dockerfile: Dockerfile
+    ports:
+      - "5252:5252"
+
+  front-end:
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    depends_on:
+      - back-end
+
+# To build and run the containers, use the following command:
+# sudo docker-compose up build
+# To only run the containers after building, use:
+# sudo docker-compose up

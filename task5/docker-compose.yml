@@ -4,14 +4,14 @@ services:
       context: ./back-end
       dockerfile: Dockerfile
     ports:
-      - "5252:5252"
+      - "5252"
 
   front-end:
     build:
       context: ./front-end
       dockerfile: Dockerfile
     ports:
-      - "9000:9000"
+      - "9000"
     depends_on:
       - back-end
 
@@ -20,7 +20,7 @@ services:
       context: ./proxy
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "80:80"
     depends_on:
       - front-end
       - back-end
